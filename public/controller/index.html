@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Boggle Kontroler</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- LOGIN SCREEN -->
+        <div id="login-screen" class="screen active">
+            <h1>💖 Twoje Imię 💖</h1>
+            <input type="text" id="nickname-input" placeholder="Wpisz nick... ✨" maxlength="10">
+            <button id="join-btn">💜 DOŁĄCZ 💜</button>
+        </div>
+
+        <!-- LOBBY SCREEN -->
+        <div id="lobby-screen" class="screen">
+            <div class="lobby-header">
+                <h2>💖 BOGGLE 💖</h2>
+                <p class="lobby-status">Połączono! Spójrz na TV 📺</p>
+            </div>
+            <div class="lobby-players">
+                <span>Gracze: <strong id="lobby-player-count">0</strong></span>
+            </div>
+
+            <!-- VIP CONTROLS (Hidden for others) -->
+            <div id="vip-controls" style="display:none;">
+                <div class="lobby-settings">
+                    <label>Trudność:</label>
+                    <div class="setting-toggle">
+                        <button id="diff-easy" class="setting-btn active">ŁATWY 🌸</button>
+                        <button id="diff-hard" class="setting-btn">TRUDNY 🔥</button>
+                    </div>
+                </div>
+
+                <div class="lobby-settings">
+                    <label>Wielkość:</label>
+                    <div class="setting-toggle">
+                        <button id="size-4" class="setting-btn active">4x4</button>
+                        <button id="size-5" class="setting-btn">5x5</button>
+                        <button id="size-6" class="setting-btn">6x6</button>
+                    </div>
+                </div>
+
+                <div class="lobby-settings">
+                    <label>Czas:</label>
+                    <div class="setting-toggle">
+                        <button id="time-60" class="setting-btn">1 min</button>
+                        <button id="time-120" class="setting-btn active">2 min</button>
+                        <button id="time-180" class="setting-btn">3 min</button>
+                    </div>
+                </div>
+                <button id="start-btn" class="btn-start">🎮 ROZPOCZNIJ GRĘ 🎮</button>
+            </div>
+            <div id="waiting-msg" style="display:none;">
+                <p style="margin-top:2rem; opacity:0.7;">Oczekiwanie na hosta...</p>
+            </div>
+        </div>
+
+        <!-- WAITING SCREEN -->
+        <div id="waiting-screen" class="screen">
+            <h2>Oczekiwanie...</h2>
+            <p>Spójrz na ekran TV</p>
+            <div class="loader"></div>
+        </div>
+
+        <!-- GAME SCREEN -->
+        <div id="game-screen" class="screen">
+            <div class="timer-container">
+                <div class="timer-track">
+                    <div id="timer-bar"></div>
+                </div>
+                <span id="timer-text">02:00</span>
+            </div>
+            <div id="current-word"></div>
+            <div class="grid-container" id="grid-container">
+                <!-- Touched cells will be handled here -->
+            </div>
+            <!-- BUTTONS REMOVED as requested -->
+            <div id="feedback-toast"></div>
+        </div>
+
+        <!-- RESULTS SCREEN -->
+        <div id="results-screen" class="screen">
+            <div class="results-info">
+                <h2>✨ Koniec rundy! ✨</h2>
+                <p>Wyniki na ekranie TV 📺</p>
+            </div>
+            <div id="vip-results-controls" style="display:none;">
+                <button id="new-round-btn" class="btn-start">💜 NOWA RUNDA 💜</button>
+            </div>
+            <div id="waiting-results-msg" style="display:none;">
+                <p style="margin-top:2rem; opacity:0.7;">Gospodarz zaraz rozpocznie nową rundę...</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

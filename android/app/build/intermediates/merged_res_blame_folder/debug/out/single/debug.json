@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "pl.boggle.tv.app-merged_res-12:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "pl.boggle.tv.app-main-14:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "pl.boggle.tv.app-merged_res-12:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "pl.boggle.tv.app-main-14:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "pl.boggle.tv.app-merged_res-12:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "pl.boggle.tv.app-main-14:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "pl.boggle.tv.app-merged_res-12:/drawable_banner.png.flat",
+        "source": "pl.boggle.tv.app-main-14:/drawable/banner.png"
+    },
+    {
+        "merged": "pl.boggle.tv.app-merged_res-12:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "pl.boggle.tv.app-main-14:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "pl.boggle.tv.app-merged_res-12:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "pl.boggle.tv.app-main-14:/mipmap-xxhdpi/ic_launcher.png"
+    }
+]

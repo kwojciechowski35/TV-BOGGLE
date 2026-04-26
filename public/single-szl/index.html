@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="szl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Boggle - Single Player (Ślōnski)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- LOGIN SCREEN -->
+        <div id="login-screen" class="screen active">
+            <h1>💖 Graj Samemu 💖</h1>
+            <input type="text" id="nickname-input" placeholder="Twoje miano... ✨" maxlength="10">
+            <button id="join-btn">💜 GRAJ 💜</button>
+        </div>
+
+        <!-- LOBBY SCREEN -->
+        <div id="lobby-screen" class="screen">
+            <div class="lobby-header">
+                <h2>💖 BOGGLE - SOLO 💖</h2>
+            </div>
+            
+            <div id="vip-controls" style="display:flex;">
+                <div class="lobby-settings">
+                    <label>Ciynżkość:</label>
+                    <div class="setting-toggle">
+                        <button id="diff-easy" class="setting-btn active">LEKO 🌸</button>
+                        <button id="diff-hard" class="setting-btn">CIYNŻKO 🔥</button>
+                    </div>
+                </div>
+
+                <div class="lobby-settings">
+                    <label>Srogość planszy:</label>
+                    <div class="setting-toggle">
+                        <button id="size-4" class="setting-btn active">4x4</button>
+                        <button id="size-5" class="setting-btn">5x5</button>
+                        <button id="size-6" class="setting-btn">6x6</button>
+                    </div>
+                </div>
+
+                <div class="lobby-settings">
+                    <label>Czas gry:</label>
+                    <div class="setting-toggle">
+                        <button id="time-60" class="setting-btn">1 min</button>
+                        <button id="time-120" class="setting-btn active">2 min</button>
+                        <button id="time-180" class="setting-btn">3 min</button>
+                    </div>
+                </div>
+                <button id="start-btn" class="btn-start">🎮 RYCHTUJ SIE 🎮</button>
+            </div>
+        </div>
+
+        <!-- WAITING SCREEN -->
+        <div id="waiting-screen" class="screen">
+            <h2>Start za...</h2>
+            <div class="loader"></div>
+        </div>
+
+        <!-- GAME SCREEN -->
+        <div id="game-screen" class="screen">
+            <div class="timer-container" style="display:flex; justify-content:space-between; align-items:center; width:92%; max-width:400px;">
+                <div style="font-size:1.5rem; font-weight:bold; color:var(--pink);">Trefy: <span id="single-score">0</span></div>
+                <div style="font-size:2rem; font-weight:800; color:var(--text); font-variant-numeric:tabular-nums;" id="timer-text">02:00</div>
+            </div>
+            
+            <div id="current-word" style="margin-top:10px;"></div>
+            
+            <div class="grid-container" id="grid-container">
+            </div>
+            <div id="feedback-toast"></div>
+        </div>
+
+        <!-- RESULTS SCREEN -->
+        <div id="results-screen" class="screen">
+            <div class="results-info">
+                <h2>✨ Fajrant! ✨</h2>
+                <div style="margin:2rem 0; font-size:3rem; font-weight:900; color:var(--pink);">Trefy: <span id="final-single-score">0</span> pkt</div>
+            </div>
+            <div id="vip-results-controls" style="display:flex;">
+                <button id="new-round-btn" class="btn-start">💜 ZAGRAJ ZAŚ 💜</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

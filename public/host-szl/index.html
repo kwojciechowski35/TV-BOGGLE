@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="szl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOGGLE — Wersjo Ślōnsko</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- LOBBY -->
+        <div id="lobby-screen" class="screen active">
+            <div class="logo">
+                <h1>⛏️ BOGGLE ⛏️</h1>
+                <p class="subtitle">🏔️ Wersjo Ślōnsko — Znojdź jak nojwiyncyj słów! 🏔️</p>
+            </div>
+            <div class="lobby-content">
+                <div class="qr-card">
+                    <div id="qrcode"></div>
+                    <p id="join-url" class="join-url"></p>
+                    <p class="qr-hint">⛏️ Skanuj coby dojść do gry ⛏️</p>
+                </div>
+                <div class="players-panel">
+                    <h2>Groce <span class="badge" id="player-count">0</span></h2>
+                    <ul id="players-ul"></ul>
+                    <div class="difficulty-display">
+                        Ciynżkość: <span id="difficulty-label">LEKO 🌸</span>
+                    </div>
+                </div>
+            </div>
+            <div class="start-hint">
+                <div class="pulse-dot"></div>
+                Sztartnij gra z mobilnioka 📱
+            </div>
+        </div>
+
+        <!-- GAME -->
+        <div id="game-screen" class="screen">
+            <div class="game-header">
+                <div class="timer-container">
+                    <div class="timer-ring">
+                        <span id="timer">02:00</span>
+                    </div>
+                </div>
+                <div class="player-scoreboard" id="scoreboard"></div>
+            </div>
+            <div class="game-body">
+                <div class="grid-container" id="grid-container"></div>
+            </div>
+        </div>
+
+        <!-- WORD REVIEW (animated) -->
+        <div id="review-screen" class="screen">
+            <div id="review-container" class="review-container"></div>
+        </div>
+
+        <!-- FINAL RESULTS -->
+        <div id="results-screen" class="screen">
+            <div class="results-header">
+                <h1>✨ Wyniki Rundy ⛏️</h1>
+            </div>
+            <div id="final-scores" class="final-scores"></div>
+            <div class="results-hint">
+                <div class="pulse-dot"></div>
+                Nowo runda — z mobilnioka 📱
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
